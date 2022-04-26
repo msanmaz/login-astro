@@ -1,0 +1,99 @@
+---
+const { title } = Astro.props
+const url = new URL(Astro.request.url).pathname
+---
+
+
+
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+
+	</head>
+    <body>
+
+ <header class="fixed top-0 w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out bg-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-5 sm:px-6">
+        <div class="flex items-center justify-between h-16 md:h-20">
+
+          <div class="flex-shrink-0 mr-4">
+            <a href="/" class="block" aria-label="Cruip">
+              <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
+                    <stop stop-color="#4FD1C5" offset="0%" />
+                    <stop stop-color="#81E6D9" offset="25.871%" />
+                    <stop stop-color="#338CF5" offset="100%" />
+                  </radialGradient>
+                </defs>
+                <rect width="32" height="32" rx="16" fill="url(#header-logo)" fill-rule="nonzero" />
+              </svg>
+            </a>
+          </div>
+
+          <nav class="hidden md:flex md:flex-grow">
+
+            <ul class="flex flex-grow justify-end flex-wrap items-center">
+              <li>
+                <a href="/" class={`${url === '/' ? 'text-gray-900 font-bold' : 'text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out'}`}>Home</a>
+              </li>
+              <li>
+                <a href="/pricing" class={`${url === '/pricing' ? 'text-gray-900 font-bold' : 'text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out'}`}>Pricing</a>
+              </li>
+              <li>
+                <a href="/blog" class="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Blog</a>
+              </li>              
+        
+              <li>
+                <a href="/" class="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Contact</a>
+              </li>              
+        
+
+            </ul>
+
+   
+            <ul class="flex flex-grow justify-end flex-wrap items-center">
+              <li>
+                <a href="/login" class="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Login</a>
+              </li>
+              <li class="">
+                <a href="/signup" class="btn-sm p-2 text-gray-200 rounded-md bg-gray-900 hover:bg-gray-800 ml-3">
+                  <span>Sign up</span>
+                      
+                </a>
+              </li>
+            </ul>
+
+          </nav>
+
+
+        </div>
+      </div>
+    </header>
+
+	
+			<div class="mx-auto text-center">
+	      <slot />
+	    </div>
+
+			<footer class="mt-20 pt-12 border-t-2 border-gray-300">
+				<nav class="flex justify-center pb-10 space-x-10">
+					<a href="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
+					<a href="/pricing" class="font-medium text-gray-500 hover:text-gray-900">Pricing</a>
+					<a href="/blog" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
+				</nav>
+				<p class="text-center text-gray-400">
+					&copy; 2022 Great Tool. All rights reserved.
+				</p>
+			</footer>
+
+
+
+
+    
+    </body>
+</html>
+  	
